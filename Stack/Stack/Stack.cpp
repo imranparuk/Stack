@@ -57,11 +57,28 @@ bool CStack::push(int val)
 
 bool CStack::pop(int &val)
 {
-
 	if (!isEmpty())
 	{
+		NODE *headPtr = head;
+		val = headPtr->data;
+		head = headPtr->linker;
 
+		delete headPtr;
+		currentSize--;
+		return true;
 	}
+	else return false;
+}
+
+bool CStack::peek(int &val)
+{
+	if (!isEmpty())
+	{
+		NODE *headPtr = head;
+		val = headPtr->data;
+		return true;
+	}
+	else return false;
 }
 
 bool CStack::isEmpty()

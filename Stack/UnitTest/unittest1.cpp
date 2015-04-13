@@ -19,15 +19,17 @@ namespace UnitTest
 		TEST_METHOD(PopTest)
 		{
 			CStack testStack(10);
+		    testStack.push(0);
+
 			int retNum;
 			bool ret = testStack.pop(retNum);
-			Assert::AreEqual(true, ret);
+			Assert::AreEqual(retNum, 0);
 		}
 
 		TEST_METHOD(peepTest)
 		{
 			CStack testStack(10);
-			for (int i = 0; i < 9; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				testStack.push(i);
 			}

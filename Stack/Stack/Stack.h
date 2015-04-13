@@ -12,9 +12,29 @@
 
 // This class is exported from the Stack.dll
 class STACK_API CStack {
+
+	typedef struct node{
+		int data;
+		struct node *linker;
+		
+	} NODE;
+
+private:
+	NODE *head;
+	int maxSize;
+	int currentSize;
+
 public:
-	CStack(void);
-    
+
+	CStack(int);
+	~CStack(void);
+
+	bool push(int val);
+	bool pop(int &val);
+	bool peek(int &val);
+
+	bool isEmpty();
+	bool isFull();
 
 };
 
